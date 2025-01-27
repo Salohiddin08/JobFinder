@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+{% load bootstrap4 %}
+{% block content %}
+
+  <h2 class="text-center mb-4">Are you sure you want to log out?</h2>
+  
+  <form method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <input type="submit" value="Log Out" class="boxed-btn3 w-100" />
+  </form>
+
+  <a href="{% url 'home' %}" class="btn btn-secondary w-100 mt-3">Cancel</a>
+
+{% endblock %}
