@@ -8,16 +8,22 @@ from .filters import JobFilter
 # Create your views here.
 
 def job_list(request):
-    job_list=Job.objects.all()
-    #Filter Section:We will pass all job_list to Jobfilter to filter all the results then pass the filtering job_list to the paginator
-    myfilter=JobFilter(request.GET,queryset=job_list)
-    job_list=myfilter.qs
+    job_list = Job.objects.all().order_by('-published_at')  # Order by latest published jobs first
+    
+    # Filter Section: Pass all job_list to JobFilter to filter results
+    myfilter = JobFilter(request.GET, queryset=job_list)
+    job_list = myfilter.qs  # Apply filter on the job_list
 
-    paginator=Paginator(job_list,2)
-    page_number=request.GET.get('page')
-    page_obj=paginator.get_page(page_number)
-    context={'jobs':page_obj,'myjobfilter':myfilter}
-    return render(request,'job/job_list.html',context)
+    # Pagination Section: Limit to 10 jobs per page
+    paginator = Paginator(job_list, 10)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    context = {
+        'jobs': page_obj,
+        'myjobfilter': myfilter
+    }
+    return render(request, 'job/job_list.html', context)
 
 
 

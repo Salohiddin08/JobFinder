@@ -11,7 +11,8 @@
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   justify-content: start;
-}
+
+
 
 /* Normal desktop :1200px. */
 /* Normal desktop :992px. */
@@ -1271,10 +1272,17 @@ h3 {
   }
 }
 
+
+<style>
+    .main-menu {
+        background-color: #007bff; /* Blue color */
+    }
+</style>
+
 /* line 300, ../../Arafath/CL/December/235. Job board/HTML/scss/_header.scss */
 .header-area .main-header-area.sticky .main-menu {
   padding: 0;
-}
+} 
 
 /* line 303, ../../Arafath/CL/December/235. Job board/HTML/scss/_header.scss */
 .header-area .main-header-area.sticky .header_bottom_border {
@@ -2542,7 +2550,7 @@ h3 {
 /* line 19, ../../Arafath/CL/December/235. Job board/HTML/scss/_bradcam.scss */
 .bradcam_area h3 {
   font-size: 56px;
-  color: #fff;
+  color: #fdfdfd;
   font-weight: 400;
   margin-bottom: 0;
   text-transform: capitalize;

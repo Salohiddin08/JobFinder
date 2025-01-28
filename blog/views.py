@@ -10,14 +10,14 @@ from django.contrib.auth.decorators import login_required
 
  
 def blog_list(request):
-    blog_list=Post.objects.all()
-    
-    paginator=Paginator(blog_list,2)
-    page_number=request.GET.get('page')
-    page_obj=paginator.get_page(page_number)
+    blog_list = Post.objects.all()  # Post modelidan barcha bloglarni olish
+    paginator = Paginator(blog_list, 10)  # Har bir sahifada 10 ta post
+    page_number = request.GET.get('page')  # URL'dan sahifa raqamini olish
+    page_obj = paginator.get_page(page_number)  # Sahifani olish
 
-    context={'blogs':page_obj,}
-    return render(request,'blog/blog_list.html',context)
+    context = {'blogs': page_obj}  # Sahifalash natijasini contextga qo'shish
+    return render(request, 'blog/blog_list.html', context)  # Natijani shablonga yuborish
+
 
 @login_required
 def blog_detail(request,slug):
