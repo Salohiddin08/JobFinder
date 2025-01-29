@@ -7,10 +7,13 @@ from .models import Profile
 from django.contrib.auth import logout
 from django.shortcuts import redirect
 from django.urls import reverse
+from django.contrib.auth import logout
+from django.shortcuts import redirect
 
 def logout_view(request):
     logout(request)  
-    return redirect(reverse('accounts:login'))
+    return render(request, 'home/homepage.html') 
+
 
 
 
@@ -50,9 +53,16 @@ def register(request):
 
 
 
-def     profile(request):
-    profile = Profile.objects.get(user=request.user)
-    return render(request,'accounts/profile.html',{'profile': profile})
+
+def profile(request):
+    try:
+        profile = Profile.objects.get(user=request.user)
+    except Profile.DoesNotExist:
+        profile = Profile.objects.create(user=request.user)
+    
+    return render(request, 'accounts/profile.html', {'profile': profile})
+
+
 
 
 def profile_edit(request):
