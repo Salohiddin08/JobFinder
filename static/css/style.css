@@ -1110,8 +1110,10 @@ h3 {
 
 /* line 160, ../../Arafath/CL/December/235. Job board/HTML/scss/_header.scss */
 .header-area .main-header-area .main-menu {
-  text-align: center;
-}
+  text-align: left;
+  width: 100%;
+
+} 
 
 /* line 163, ../../Arafath/CL/December/235. Job board/HTML/scss/_header.scss */
 .header-area .main-header-area .main-menu ul li {
@@ -1146,6 +1148,12 @@ h3 {
   position: relative;
   text-transform: capitalize;
 }
+
+.header-area .main-header-area .main-menu ul li a span {
+  width: 300px;
+}
+
+
 
 @media (min-width: 992px) and (max-width: 1200px) {
   /* line 176, ../../Arafath/CL/December/235. Job board/HTML/scss/_header.scss */

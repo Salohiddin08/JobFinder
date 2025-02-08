@@ -9,6 +9,8 @@ from django.shortcuts import redirect
 from django.urls import reverse
 from django.contrib.auth import logout
 from django.shortcuts import redirect
+from django.shortcuts import render
+from .countries_list import countries 
 
 def logout_view(request):
     logout(request)  
@@ -87,3 +89,7 @@ def profile_edit(request):
 
 
     return render(request,'accounts/profile_edit.html',{"User_Form":user_form,"Profile_Form":profile_form})
+
+
+def country_view(request):
+    return render(request, 'your_template.html', {'countries': countries})
