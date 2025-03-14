@@ -1,645 +1,190 @@
 {% load static %}
 <!DOCTYPE html>
-<html class="no-js" lang="zxx">
-  <head>
+<html lang="en">
+<head>
     <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Job Board</title>
-<<<<<<< HEAD
-    <link rel="logo" href="img/favicon.png" />
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-=======
-    <link rel="logo" href="img/favicon.png">
-    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
->>>>>>> 1ce8f6034c50fb7f7216b74a958df2a8ca522e62
-
-    <!-- <link rel="manifest" href="site.webmanifest"> -->
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png" />
-    <!-- Place favicon.ico in the root directory -->
-    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css" />
-    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css" />
-    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css" />
-    <!-- CSS here -->
+    <title>Job Board</title>
+    <meta name="description" content="">
+    
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/gijgo.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/slicknav.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
-
+    <!-- Custom CSS to override any problematic background images -->
+    <style>
+        body, html {
+            background-image: none !important;
+            background-color: #fff !important;
+        }
+        .container-fluid, .row, .col {
+            background-image: none !important;
+        }
+    </style>
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
-  </head>
+    <!-- Bootstrap Icons instead of FontAwesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
 
-<<<<<<< HEAD
-  <body>
-    <!-- [if lte IE 9]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-        <![endif] -->
-
-    <!-- header-start -->
-    <header>
-      <div class="header-area", style="background-color: #001D38;">
-        <div id="sticky-header" class="main-header-area">
-          <div class="container-fluid">
-            <div class="header_bottom_border">
-              <div class="row text-center align-center">
-                {% comment %} <div class="col-xl-1 col-lg-4" style="background-color: rgb(41, 115, 238); width: 500px;">
-                  <div class="main-menu d-none d-lg-block">
-                    <nav>
-                      <ul id="navigation">
-                        <li>
-                          <a href="/"><i class="fa-solid fa-house" style="font-size: 15px; color: #A3E635">Home</i></a>
-                        </li>
-                        <li>
-                          <a href="{% url 'blogs:blog_list' %}"><i class="fa-solid fa-address-card" style="font-size: 15px;  color: #A3E635">Blog</i></a>
-                        </li>
-                        <li>
-                          <a href="{% url 'jobs:job_list' %}"><i class="fa-solid fa-magnifying-glass" style="font-size: 15px; color: #A3E635">Browse Job</i></a>
-                        </li>
-                        <li>
-                          <a href="{% url 'contact:contact_sendmsg' %}"><i class="fa-solid fa-user" style="font-size: 15px; color: #A3E635;">Contact</i></a>
-                        </li>
-                      </ul>
-                    </nav>
-                  </div>
-                </div> {% endcomment %}
-                <div class="col-xl-6 col-lg-7">
-                  <div class="col-xl-3 col-lg-2">
-                    <div class="logo">
-                      <a href="#"><img src="{% static 'img/logo.png' %}" alt="" /></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 d-none d-lg-block">
-                  <div class="Appointment">
-                    {% if request.user.is_authenticated %}
-                      <div class="phone_num d-none d-xl-block">
-                        <a href="{% url 'accounts:logout' %}" class="btn btn-white">Log Out</a>
-                      </div>
-
-                      <div class="phone_num d-none d-xl-block">
-                        <a href="{% url 'accounts:profile' %}">My Profile</a>
-                      </div>
-                    {% else %}
-                      <div class="phone_num d-none d-xl-block">
-                        <a href="{% url 'accounts:register' %}">Register Now</a>
-                      </div>
-                      <div class="phone_num d-none d-xl-block">
-                        <a href="{% url 'login' %}">Log in</a>
-                      </div>
-                    {% endif %}
-
-                    <div class="d-none d-lg-block">
-                      <a class="boxed-btn3" href="{% url 'jobs:add_job' %}">Post a Job</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <div class="mobile_menu d-block d-lg-none"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-    <!-- header-end -->
-
-    {% block body %}
-
-    {% endblock %}
-=======
 <body>
-    <div class="d-flex vh-100">
-        <!-- Sidebar / Left Menu -->
-        <div class="bg-dark text-white p-3 d-flex flex-column align-items-center position-fixed h-100" style="width: 250px;">
-            <!-- Logo -->
-            <div class="mb-3">
-                <a href="#" class="d-block">
-                    <img src="{% static 'img/logo.png' %}" alt="Logo" class="img-fluid">
-                </a>
-            </div>
-
-            <!-- Navigation Links -->
-            <nav class="w-100">
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/">
-                            <i class="fa-solid fa-house"></i> Home
+    <div class="container-fluid p-0">
+        <div class="row g-0">
+            <!-- Sidebar / Left Menu -->
+            <div class="col-auto bg-dark text-white position-fixed" style="width: 250px; height: 100vh; z-index: 1030;">
+                <div class="d-flex flex-column h-100 p-3">
+                    <!-- Logo -->
+                    <div class="mb-4 text-center">
+                        <a href="#" class="d-block">
+                            <img src="{% static 'img/logo.png' %}" alt="Logo" class="img-fluid">
                         </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="{% url 'blogs:blog_list' %}">
-                            <i class="fa-solid fa-address-card"></i> Blog
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="{% url 'jobs:job_list' %}">
-                            <i class="fa-solid fa-magnifying-glass"></i> Browse Job
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="{% url 'contact:contact_sendmsg' %}">
-                            <i class="fa-solid fa-user"></i> Contact
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-
-            <!-- Authentication Links -->
-            <div class="mt-3 w-100 text-center">
-                {% if request.user.is_authenticated %}
-                    <a href="{% url 'accounts:profile' %}" class="btn btn-outline-light btn-sm w-100">My Profile</a>
-                    <a href="{% url 'accounts:logout' %}" class="btn btn-outline-danger btn-sm w-100 mt-2">Log Out</a>
-                {% else %}
-                    <a href="{% url 'accounts:register' %}" class="btn btn-outline-light btn-sm w-100">Register</a>
-                    <a href="{% url 'login' %}" class="btn btn-outline-light btn-sm w-100 mt-2">Log In</a>
-                {% endif %}
-            </div>
-
-            <!-- Post Job Button -->
-            <div class="mt-auto w-100 text-center">
-                <a href="{% url 'jobs:add_job' %}" class="btn btn-primary w-100">Post a Job</a>
-            </div>
-        </div>
-
-        <!-- Main Content -->
-        <div class="col-md-9 p-4" style="margin-left: 250px;">
-        <!-- <div class="container-fluid"> -->
-            {% load static %}
-            <!doctype html>
-            <html class="no-js" lang="zxx">
-            
-            <head>
-                <meta charset="utf-8">
-                <meta http-equiv="x-ua-compatible" content="ie=edge">
-                <title>Job Board</title>
-                <link rel="logo" href="img/favicon.png">
-                <meta name="description" content="">
-                <meta name="viewport" content="width=device-width, initial-scale=1">
-            
-                <!-- <link rel="manifest" href="site.webmanifest"> -->
-                <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
-                <!-- Place favicon.ico in the root directory -->
-                <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
-                <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
-                <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
-                <!-- CSS here -->
-                <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-                <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
-                <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
-                <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
-                <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
-                <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
-                <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
-                <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
-                <link rel="stylesheet" href="{% static 'css/gijgo.css' %}">
-                <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
-                <link rel="stylesheet" href="{% static 'css/slicknav.css' %}">
-                <link rel="stylesheet" href="{% static 'css/base.css' %}">
-            
-                <link rel="stylesheet" href="{% static 'css/style.css' %}">
-                <!-- <link rel="stylesheet" href="css/responsive.css"> -->
-            </head>
-            
-            <body>
-                <div class="d-flex vh-100">
-                    <!-- Sidebar / Left Menu -->
-                    <div class="bg-dark text-white p-3 d-flex flex-column align-items-center position-fixed h-100" style="width: 250px;">
-                        <!-- Logo -->
-                        <div class="mb-3">
-                            <a href="#" class="d-block">
-                                <img src="{% static 'img/logo.png' %}" alt="Logo" class="img-fluid">
-                            </a>
-                        </div>
-            
-                        <!-- Navigation Links -->
-                        <nav class="w-100">
-                            <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <a class="nav-link text-white" href="/">
-                                        <i class="fa-solid fa-house"></i> Home
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-white" href="{% url 'blogs:blog_list' %}">
-                                        <i class="fa-solid fa-address-card"></i> Blog
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-white" href="{% url 'jobs:job_list' %}">
-                                        <i class="fa-solid fa-magnifying-glass"></i> Browse Job
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-white" href="{% url 'contact:contact_sendmsg' %}">
-                                        <i class="fa-solid fa-user"></i> Contact
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-            
-                        <!-- Authentication Links -->
-                        <div class="mt-3 w-100 text-center">
-                            {% if request.user.is_authenticated %}
-                                <a href="{% url 'accounts:profile' %}" class="btn btn-outline-light btn-sm w-100">My Profile</a>
-                                <a href="{% url 'accounts:logout' %}" class="btn btn-outline-danger btn-sm w-100 mt-2">Log Out</a>
-                            {% else %}
-                                <a href="{% url 'accounts:register' %}" class="btn btn-outline-light btn-sm w-100">Register</a>
-                                <a href="{% url 'login' %}" class="btn btn-outline-light btn-sm w-100 mt-2">Log In</a>
-                            {% endif %}
-                        </div>
-            
-                        <!-- Post Job Button -->
-                        <div class="mt-auto w-100 text-center">
-                            <a href="{% url 'jobs:add_job' %}" class="btn btn-primary w-100">Post a Job</a>
-                        </div>
                     </div>
-            
-                    <!-- Main Content -->
-                    <div class="col-md-9 p-4" style="margin-left: 250px;">
-                    <!-- <div class="container-fluid"> -->
-            
-            
-                        {% block body %}
-                        {% endblock body %}
+
+                    <!-- Navigation Links -->
+                    <nav class="w-100">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link text-white mb-2" href="/">
+                                    <i class="bi bi-house-fill"></i> Home
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white mb-2" href="{% url 'blogs:blog_list' %}">
+                                    <i class="bi bi-file-text-fill"></i> Blog
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white mb-2" href="{% url 'jobs:job_list' %}">
+                                    <i class="bi bi-search"></i> Browse Job
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white mb-2" href="{% url 'contact:contact_sendmsg' %}">
+                                    <i class="bi bi-person-fill"></i> Contact
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <!-- Authentication Links -->
+                    <div class="mt-4 w-100 text-center">
+                        {% if request.user.is_authenticated %}
+                            <a href="{% url 'accounts:profile' %}" class="btn btn-outline-light btn-sm w-100 mb-2">My Profile</a>
+                            <a href="{% url 'accounts:logout' %}" class="btn btn-outline-danger btn-sm w-100">Log Out</a>
+                        {% else %}
+                            <a href="{% url 'accounts:register' %}" class="btn btn-outline-light btn-sm w-100 mb-2">Register</a>
+                            <a href="{% url 'login' %}" class="btn btn-outline-light btn-sm w-100">Log In</a>
+                        {% endif %}
+                    </div>
+
+                    <!-- Post Job Button -->
+                    <div class="mt-auto w-100 text-center mb-3">
+                        <a href="{% url 'jobs:add_job' %}" class="btn btn-primary w-100">Post a Job</a>
                     </div>
                 </div>
-                
-            
-            
-                <!-- footer start -->
-                <footer class="footer">
-                    <div class="footer_top">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-xl-3 col-md-6 col-lg-3">
-                                    <div class="footer_widget wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
-                                        <div class="footer_logo">
-                                            <a href="#">
-                                                <img src="img/logo.png" alt="">
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="col offset-auto" style="margin-left: 250px;">
+                <!-- Content Section -->
+                <div class="p-4">
+                    {% block body %}
+                    {% endblock body %}
+                </div>
+
+                <!-- Footer Section -->
+                <footer class="bg-dark text-white py-4">
+                    <div class="container">
+                        <div class="row">
+                            <!-- Company Info -->
+                            <div class="col-md-3 mb-4">
+                                <div class="mb-3">
+                                    <a href="#">
+                                        <img src="{% static 'img/logo.png' %}" alt="Logo" class="img-fluid" style="max-height: 40px;">
+                                    </a>
+                                </div>
+                                <p>
+                                    finloan@support.com <br>
+                                    +10 873 672 6782 <br>
+                                    600/D, Green road, NewYork
+                                </p>
+                                <div class="social-links">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <a href="#" class="text-white">
+                                                <i class="bi bi-facebook"></i>
                                             </a>
-                                        </div>
-                                        <p>
-                                            finloan@support.com <br>
-                                            +10 873 672 6782 <br>
-                                            600/D, Green road, NewYork
-                                        </p>
-                                        <div class="socail_links">
-                                            <ul>
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="ti-facebook"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="fa fa-google-plus"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="fa fa-twitter"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="fa fa-instagram"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-            
-                                    </div>
-                                </div>
-                                <div class="col-xl-2 col-md-6 col-lg-2">
-                                    <div class="footer_widget wow fadeInUp" data-wow-duration="1.1s" data-wow-delay=".4s">
-                                        <h3 class="footer_title">
-                                            Company
-                                        </h3>
-                                        <ul>
-                                            <li><a href="#">About </a></li>
-                                            <li><a href="#"> Pricing</a></li>
-                                            <li><a href="#">Carrier Tips</a></li>
-                                            <li><a href="#">FAQ</a></li>
-                                        </ul>
-            
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-md-6 col-lg-3">
-                                    <div class="footer_widget wow fadeInUp" data-wow-duration="1.2s" data-wow-delay=".5s">
-                                        <h3 class="footer_title">
-                                            Category
-                                        </h3>
-                                        <ul>
-                                            <li><a href="#">Design & Art</a></li>
-                                            <li><a href="#">Engineering</a></li>
-                                            <li><a href="#">Sales & Marketing</a></li>
-                                            <li><a href="#">Finance</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-md-6 col-lg-4">
-                                    <div class="footer_widget wow fadeInUp" data-wow-duration="1.3s" data-wow-delay=".6s">
-                                        <h3 class="footer_title">
-                                            Subscribe
-                                        </h3>
-                                        <form action="#" class="newsletter_form">
-                                            <input type="text" placeholder="Enter your mail">
-                                            <button type="submit">Subscribe</button>
-                                        </form>
-                                        <p class="newsletter_text">Esteem spirit temper too say adieus who direct esteem esteems
-                                            luckily.</p>
-                                    </div>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a href="#" class="text-white">
+                                                <i class="bi bi-google"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a href="#" class="text-white">
+                                                <i class="bi bi-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a href="#" class="text-white">
+                                                <i class="bi bi-instagram"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
+                            
+                            <!-- Company Links -->
+                            <div class="col-md-2 mb-4">
+                                <h5 class="mb-3">Company</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><a href="#" class="text-white text-decoration-none">About</a></li>
+                                    <li class="mb-2"><a href="#" class="text-white text-decoration-none">Pricing</a></li>
+                                    <li class="mb-2"><a href="#" class="text-white text-decoration-none">Carrier Tips</a></li>
+                                    <li class="mb-2"><a href="#" class="text-white text-decoration-none">FAQ</a></li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Categories -->
+                            <div class="col-md-3 mb-4">
+                                <h5 class="mb-3">Category</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><a href="#" class="text-white text-decoration-none">Design & Art</a></li>
+                                    <li class="mb-2"><a href="#" class="text-white text-decoration-none">Engineering</a></li>
+                                    <li class="mb-2"><a href="#" class="text-white text-decoration-none">Sales & Marketing</a></li>
+                                    <li class="mb-2"><a href="#" class="text-white text-decoration-none">Finance</a></li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Subscribe Section -->
+                            <div class="col-md-4 mb-4">
+                                <h5 class="mb-3">Subscribe</h5>
+                                <form class="mb-3">
+                                    <div class="input-group">
+                                        <input type="email" class="form-control" placeholder="Enter your mail">
+                                        <button class="btn btn-success" type="submit">Subscribe</button>
+                                    </div>
+                                </form>
+                                <p>Esteem spirit temper too say adieus who direct esteem esteems luckily.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="copy-right_text wow fadeInUp" data-wow-duration="1.4s" data-wow-delay=".3s">
-                        <div class="container">
-                            <div class="footer_border"></div>
-                            <div class="row">
-                                <div class="col-xl-12">
-                                    <p class="copy_right text-center">
-                                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                        Copyright &copy;
-                                        <script>document.write(new Date().getFullYear());</script> All rights reserved | This
-                                        template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a
-                                            href="https://colorlib.com" target="_blank">Colorlib</a>
-                                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                    </p>
-                                </div>
+                        
+                        <!-- Copyright -->
+                        <div class="row mt-4 border-top pt-3">
+                            <div class="col-12 text-center">
+                                <p class="mb-0">
+                                    Copyright &copy;<script>document.write(new Date().getFullYear())</script> 
+                                    All rights reserved | This template is made with 
+                                    <i class="bi bi-heart-fill text-danger"></i> by 
+                                    <a href="https://colorlib.com" target="_blank" class="text-white">Colorlib</a>
+                                </p>
                             </div>
                         </div>
                     </div>
                 </footer>
-                <!--/ footer end  -->
-            
-                <!-- link that opens popup -->
-                <!-- JS here -->
-                <script src="{% static 'js/vendor/modernizr-3.5.0.min.js' %}"></script>
-                <script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
-                <script src="{% static 'js/popper.min.js' %}"></script>
-                <script src="{% static 'js/bootstrap.min.js' %}"></script>
-                <script src="{% static 'js/owl.carousel.min.js' %}"></script>
-                <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
-                <script src="{% static 'js/ajax-form.js' %}"></script>
-                <script src="{% static 'js/waypoints.min.js' %}"></script>
-                <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
-                <script src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
-                <script src="{% static 'js/scrollIt.js' %}"></script>
-                <script src="{% static 'js/jquery.scrollUp.min.js' %}"></script>
-                <script src="{% static 'js/wow.min.js' %}"></script>
-                <script src="{% static 'js/nice-select.min.js' %}"></script>
-                <script src="{% static 'js/jquery.sl    icknav.min.js' %}"></script>
-                <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
-                <script src="{% static 'js/plugins.js' %}"></script>
-                <!-- <script src="js/gijgo.min.js"></script> -->
-                <script src="{% static 'js/range.js' %}"></script>
-            
-            
-            
-                <!--contact js-->
-                <script src="{% static 'js/contact.js' %}"></script>
-                <script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
-                <script src="{% static 'js/jquery.form.js' %}"></script>
-                <script src="{% static 'js/jquery.validate.min.js' %}"></script>
-                <script src="{% static 'js/mail-script.js' %}"></script>
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-                    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-                    crossorigin="anonymous" referrerpolicy="no-referrer" />
-            
-            
-                <script src="{% static 'js/main.js' %}"></script>
-            
-            
-                <script>
-                    $(function () {
-                        $("#slider-range").slider({
-                            range: true,
-                            min: 0,
-                            max: 24600,
-                            values: [750, 24600],
-                            slide: function (event, ui) {
-                                $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1] + "/ Year");
-                            }
-                        });
-                        $("#amount").val("$" + $("#slider-range").slider("values", 0) +
-                            " - $" + $("#slider-range").slider("values", 1) + "/ Year");
-                    });
-                </script>
-            </body>
-            
-            </html>
-
-            {% block body %}
-            {% endblock body %}
+            </div>
         </div>
     </div>
-    
->>>>>>> 1ce8f6034c50fb7f7216b74a958df2a8ca522e62
 
-
-    <!-- footer start -->
-    <footer class="footer">
-      <div class="footer_top">
-        <div class="container">
-          <div class="row">
-            <div class="col-xl-3 col-md-6 col-lg-3">
-              <div class="footer_widget wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
-                <div class="footer_logo">
-                  <a href="#"><img src="img/logo.png" alt="" /></a>
-                </div>
-<<<<<<< HEAD
-                <p>
-                  finloan@support.com <br />
-                  +10 873 672 6782 <br />
-                  600/D, Green road, NewYork
-                </p>
-                <div class="socail_links">
-                  <ul>
-                    <li>
-                      <a href="#"><i class="ti-facebook"></i></a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="fa fa-google-plus"></i></a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="fa fa-twitter"></i></a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="fa fa-instagram"></i></a>
-                    </li>
-                  </ul>
-=======
-            </div>
-        </div>
-        <div class="copy-right_text wow fadeInUp" data-wow-duration="1.4s" data-wow-delay=".3s">
-            <div class="container">
-                <div class="footer_border"></div>
-                <div class="row">
-                    <div class="col-xl-12">
-                        <p class="copy_right text-center">
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;
-                            <script>document.write(new Date().getFullYear());</script> All rights reserved | This
-                            template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a
-                                href="https://colorlib.com" target="_blank">Colorlib</a>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        </p>
-                    </div>
->>>>>>> 1ce8f6034c50fb7f7216b74a958df2a8ca522e62
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-2 col-md-6 col-lg-2">
-              <div class="footer_widget wow fadeInUp" data-wow-duration="1.1s" data-wow-delay=".4s">
-                <h3 class="footer_title">Company</h3>
-                <ul>
-                  <li>
-                    <a href="#">About</a>
-                  </li>
-                  <li>
-                    <a href="#">Pricing</a>
-                  </li>
-                  <li>
-                    <a href="#">Carrier Tips</a>
-                  </li>
-                  <li>
-                    <a href="#">FAQ</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-xl-3 col-md-6 col-lg-3">
-              <div class="footer_widget wow fadeInUp" data-wow-duration="1.2s" data-wow-delay=".5s">
-                <h3 class="footer_title">Category</h3>
-                <ul>
-                  <li>
-                    <a href="#">Design & Art</a>
-                  </li>
-                  <li>
-                    <a href="#">Engineering</a>
-                  </li>
-                  <li>
-                    <a href="#">Sales & Marketing</a>
-                  </li>
-                  <li>
-                    <a href="#">Finance</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-xl-4 col-md-6 col-lg-4">
-              <div class="footer_widget wow fadeInUp" data-wow-duration="1.3s" data-wow-delay=".6s">
-                <h3 class="footer_title">Subscribe</h3>
-                <form action="#" class="newsletter_form">
-                  <input type="text" placeholder="Enter your mail" />
-                  <button type="submit">Subscribe</button>
-                </form>
-                <p class="newsletter_text">Esteem spirit temper too say adieus who direct esteem esteems luckily.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="copy-right_text wow fadeInUp" data-wow-duration="1.4s" data-wow-delay=".3s">
-        <div class="container">
-          <div class="footer_border"></div>
-          <div class="row">
-            <div class="col-xl-12">
-              <p class="copy_right text-center">
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                Copyright &copy;<script>
-                                  document.write(new Date().getFullYear())
-                                </script>All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <!-- / footer end -->
-
-    <!-- link that opens popup -->
-    <!-- JS here -->
-    <script src="{% static 'js/vendor/modernizr-3.5.0.min.js' %}"></script>
-    <script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
-    <script src="{% static 'js/popper.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
-    <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
-    <script src="{% static 'js/ajax-form.js' %}"></script>
-    <script src="{% static 'js/waypoints.min.js' %}"></script>
-    <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
-    <script src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
-    <script src="{% static 'js/scrollIt.js' %}"></script>
-    <script src="{% static 'js/jquery.scrollUp.min.js' %}"></script>
-    <script src="{% static 'js/wow.min.js' %}"></script>
-    <script src="{% static 'js/nice-select.min.js' %}"></script>
-    <script src="{% static 'js/jquery.sl    icknav.min.js' %}"></script>
-    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
-    <script src="{% static 'js/plugins.js' %}"></script>
-    <!-- <script src="js/gijgo.min.js"></script> -->
-    <script src="{% static 'js/range.js' %}"></script>
-
-    <!-- contact js -->
-    <script src="{% static 'js/contact.js' %}"></script>
-    <script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
-    <script src="{% static 'js/jquery.form.js' %}"></script>
-    <script src="{% static 'js/jquery.validate.min.js' %}"></script>
-    <script src="{% static 'js/mail-script.js' %}"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
-
-<<<<<<< HEAD
-    <script>
-      $(function () {
-        $('#slider-range').slider({
-          range: true,
-          min: 0,
-          max: 24600,
-          values: [750, 24600],
-          slide: function (event, ui) {
-            $('#amount').val('$' + ui.values[0] + ' - $' + ui.values[1] + '/ Year')
-          }
-        })
-        $('#amount').val('$' + $('#slider-range').slider('values', 0) + ' - $' + $('#slider-range').slider('values', 1) + '/ Year')
-      })
-    </script>
-  </body>
-</html>
-=======
-
-    <script>
-        $(function () {
-            $("#slider-range").slider({
-                range: true,
-                min: 0,
-                max: 24600,
-                values: [750, 24600],
-                slide: function (event, ui) {
-                    $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1] + "/ Year");
-                }
-            });
-            $("#amount").val("$" + $("#slider-range").slider("values", 0) +
-                " - $" + $("#slider-range").slider("values", 1) + "/ Year");
-        });
-    </script>
 </body>
-
 </html>
->>>>>>> 1ce8f6034c50fb7f7216b74a958df2a8ca522e62

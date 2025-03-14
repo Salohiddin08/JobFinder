@@ -2522,26 +2522,15 @@ h3 {
 }
 
 /* line 1, ../../Arafath/CL/December/235. Job board/HTML/scss/_bradcam.scss */
-<<<<<<< HEAD
-.bradcam_bg_1 {
-  /* background-image: url(../img/banner/bradcam.png); */
-  background-color: #009DFF;
-}
-=======
 /* .bradcam_bg_1 {
   background-image: url(../img/banner/bradcam.png);
 } */
->>>>>>> 1ce8f6034c50fb7f7216b74a958df2a8ca522e62
 
 /* line 4, ../../Arafath/CL/December/235. Job board/HTML/scss/_bradcam.scss */
 .bradcam_area {
   background-size: cover;
   background-position: center;
-<<<<<<< HEAD
-  /* height: 70px; */
-=======
   padding: 70px 0 0px 0;
->>>>>>> 1ce8f6034c50fb7f7216b74a958df2a8ca522e62
   background-repeat: no-repeat;
   position: relative;
   z-index: 0;

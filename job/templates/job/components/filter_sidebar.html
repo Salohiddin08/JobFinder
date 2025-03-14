@@ -1,0 +1,18 @@
+{% comment %}
+  components/filter_sidebar.html - Reusable filter sidebar
+  
+  Parameters:
+  - filter_form: The form object for filtering jobs
+{% endcomment %}
+{% load bootstrap4 %}
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h3 class="mb-4">Filter</h3>
+        <form method="GET">
+            {% bootstrap_form filter_form %}
+            
+            <button class="btn btn-success w-100 mt-3" type="submit">Search</button>
+        </form>
+    </div>
+</div>

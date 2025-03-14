@@ -1,0 +1,42 @@
+{% comment %}
+  components/listing_header.html - Reusable listing header with sorting options
+  
+  Parameters:
+  - title: The title to display (default: "Job Listing")
+  - sort_options: List of sorting options (optional)
+{% endcomment %}
+{% load bootstrap4 %}
+
+<div class="card shadow-sm mb-4">
+    <div class="card-body py-3">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h4 class="mb-0">{{ title|default:"Job Listing" }}</h4>
+            </div>
+            {% if sort_options %}
+            <div class="col-md-6">
+                <div class="d-flex justify-content-md-end">
+                    <select class="form-select" name="sort" onchange="this.form.submit()">
+                        {% for option in sort_options %}
+                            <option value="{{ option.value }}" {% if current_sort == option.value %}selected{% endif %}>
+                                {{ option.label }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            {% else %}
+            <div class="col-md-6">
+                <div class="d-flex justify-content-md-end">
+                    <select class="form-select">
+                        <option selected>Most Recent</option>
+                        <option>Marketer</option>
+                        <option>Wordpress</option>
+                        <option>Designer</option>
+                    </select>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>

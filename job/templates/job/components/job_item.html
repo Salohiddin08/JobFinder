@@ -1,0 +1,49 @@
+{% comment %}
+  components/job_item.html - Reusable job listing item
+  
+  Parameters:
+  - job: The job object with all details
+{% endcomment %}
+{% load bootstrap4 %}
+
+<div class="card shadow-sm mb-4">
+    <div class="card-body p-0">
+        <div class="d-flex p-3">
+            <!-- Job Logo -->
+            <div class="me-3" style="width: 80px; height: 80px;">
+                <img src="{{job.image.url}}" class="img-fluid rounded" alt="{{job.title}} logo">
+            </div>
+            
+            <!-- Job Details -->
+            <div class="flex-grow-1">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <a href="{% url 'jobs:job_detail' job.slug %}" class="text-decoration-none">
+                            <h5 class="mb-2">{{job.title}}</h5>
+                        </a>
+                        <div class="d-flex flex-wrap mb-2">
+                            <div class="me-3">
+                                <i class="bi bi-geo-alt text-muted"></i>
+                                <small class="text-muted">{{job.location|default:"California, USA"}}</small>
+                            </div>
+                            <div>
+                                <i class="bi bi-clock text-muted"></i>
+                                <small class="text-muted">{{job.job_type}}</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Apply Button and Date -->
+                    <div class="text-end">
+                        <div class="d-flex flex-column align-items-end">
+                            <div class="mb-2">
+                                <a href="{% url 'jobs:job_detail' job.slug %}" class="btn btn-success">Apply Now</a>
+                            </div>
+                            <small class="text-muted">{{job.published_at|date:'d M o'}}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
