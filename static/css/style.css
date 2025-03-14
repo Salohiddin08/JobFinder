@@ -917,7 +917,7 @@ h3 {
 .header-area .main-header-area {
   background: #fff;
   background: transparent;
-  padding: 0px 150px;
+  padding: 0px 0px;
 }
 
 /* line 20, ../../Arafath/CL/December/235. Job board/HTML/scss/_header.scss */
@@ -2522,16 +2522,26 @@ h3 {
 }
 
 /* line 1, ../../Arafath/CL/December/235. Job board/HTML/scss/_bradcam.scss */
+<<<<<<< HEAD
 .bradcam_bg_1 {
   /* background-image: url(../img/banner/bradcam.png); */
   background-color: #009DFF;
 }
+=======
+/* .bradcam_bg_1 {
+  background-image: url(../img/banner/bradcam.png);
+} */
+>>>>>>> 1ce8f6034c50fb7f7216b74a958df2a8ca522e62
 
 /* line 4, ../../Arafath/CL/December/235. Job board/HTML/scss/_bradcam.scss */
 .bradcam_area {
   background-size: cover;
   background-position: center;
+<<<<<<< HEAD
   /* height: 70px; */
+=======
+  padding: 70px 0 0px 0;
+>>>>>>> 1ce8f6034c50fb7f7216b74a958df2a8ca522e62
   background-repeat: no-repeat;
   position: relative;
   z-index: 0;
@@ -2541,14 +2551,14 @@ h3 {
 @media (min-width: 768px) and (max-width: 991px) {
   /* line 4, ../../Arafath/CL/December/235. Job board/HTML/scss/_bradcam.scss */
   .bradcam_area {
-    padding: 120px 0;
+    padding: 70px 0 0px 0;
   }
 }
 
 @media (max-width: 767px) {
   /* line 4, ../../Arafath/CL/December/235. Job board/HTML/scss/_bradcam.scss */
   .bradcam_area {
-    padding: 150px 0 60px 0;
+    padding: 0px 0 70px 0;
   }
 }
 
@@ -3244,12 +3254,12 @@ h3 {
 /* line 1, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
 .job_listing_area {
   background: #F5F7FA;
-  padding-bottom: 80px;
+  padding-bottom: 120px;
 }
 
 /* line 4, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
 .job_listing_area.plus_padding {
-  padding-top: 100px;
+  padding-top: 2px;
 }
 
 @media (max-width: 767px) {
