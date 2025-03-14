@@ -1,49 +1,97 @@
 {% comment %}
-  components/job_item.html - Reusable job listing item
+  components/job_item.html - Enhanced job listing item
   
   Parameters:
   - job: The job object with all details
 {% endcomment %}
 {% load bootstrap4 %}
 
-<div class="card shadow-sm mb-4">
-    <div class="card-body p-0">
-        <div class="d-flex p-3">
-            <!-- Job Logo -->
-            <div class="me-3" style="width: 80px; height: 80px;">
-                <img src="{{job.image.url}}" class="img-fluid rounded" alt="{{job.title}} logo">
-            </div>
-            
-            <!-- Job Details -->
-            <div class="flex-grow-1">
-                <div class="d-flex justify-content-between align-items-start">
-                    <div>
-                        <a href="{% url 'jobs:job_detail' job.slug %}" class="text-decoration-none">
-                            <h5 class="mb-2">{{job.title}}</h5>
-                        </a>
-                        <div class="d-flex flex-wrap mb-2">
-                            <div class="me-3">
-                                <i class="bi bi-geo-alt text-muted"></i>
-                                <small class="text-muted">{{job.location|default:"California, USA"}}</small>
-                            </div>
-                            <div>
-                                <i class="bi bi-clock text-muted"></i>
-                                <small class="text-muted">{{job.job_type}}</small>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Apply Button and Date -->
-                    <div class="text-end">
-                        <div class="d-flex flex-column align-items-end">
-                            <div class="mb-2">
-                                <a href="{% url 'jobs:job_detail' job.slug %}" class="btn btn-success">Apply Now</a>
-                            </div>
-                            <small class="text-muted">{{job.published_at|date:'d M o'}}</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<div class="card mb-4 border-0 shadow-sm hover-shadow transition-all">
+  <div class="card-body p-0">
+    <div class="row g-0">
+      <!-- Company Logo Section -->
+      <div class="col-md-2 d-flex align-items-center justify-content-center p-4">
+        <div class="company-logo-container bg-light rounded-circle d-flex align-items-center justify-content-center p-1" style="width: 90px; height: 90px;">
+          <img src="{{job.image.url}}" class="img-fluid p-2" alt="{{job.title}} logo" style="max-width: 80px; max-height: 80px;">
         </div>
+      </div>
+      
+      <!-- Job Details Section -->
+      <div class="col-md-7 p-4">
+        <a href="{% url 'jobs:job_detail' job.slug %}" class="text-decoration-none">
+          <h4 class="job-title text-dark fw-bold mb-2">{{job.title}}</h4>
+        </a>
+        
+        <div class="job-meta d-flex flex-wrap gap-3 mb-3">
+          <div class="d-flex align-items-center text-muted">
+            <i class="bi bi-geo-alt me-2"></i>
+            <span>{{job.location|default:"California, USA"}}</span>
+          </div>
+          <div class="d-flex align-items-center text-muted">
+            <i class="bi bi-clock me-2"></i>
+            <span>{{job.job_type}}</span>
+          </div>
+          <div class="d-flex align-items-center text-muted">
+            <i class="bi bi-currency-dollar me-2"></i>
+            <span>{{job.salary|default:"Competitive"}}</span>
+          </div>
+        </div>
+        
+        {% if job.description %}
+        <div class="job-description text-muted mb-2">
+          <p class="mb-0">{{ job.description|truncatechars:120 }}</p>
+        </div>
+        {% endif %}
+        
+        {% if job.tags %}
+        <div class="job-tags mt-3">
+          {% for tag in job.tags %}
+          <span class="badge bg-light text-dark me-2 mb-1 px-3 py-2">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      
+      <!-- Action Section -->
+      <div class="col-md-3 bg-light p-4 d-flex flex-column justify-content-between">
+        <div class="d-flex justify-content-end">
+          <button class="btn btn-outline-secondary btn-sm rounded-circle bookmark-btn">
+            <i class="bi bi-bookmark"></i>
+          </button>
+        </div>
+        
+        <div class="d-flex flex-column align-items-center justify-content-center">
+          <a href="{% url 'jobs:job_detail' job.slug %}" class="btn btn-success btn-lg fw-bold px-4 py-2 mb-3">Apply Now</a>
+          <p class="text-muted mb-0 text-center">
+            <i class="bi bi-calendar-event me-1"></i>
+            {{job.published_at|date:'d M o'}}
+          </p>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
+
+<style>
+  .hover-shadow:hover {
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+    transform: translateY(-2px);
+  }
+  
+  .transition-all {
+    transition: all 0.3s ease;
+  }
+  
+  .bookmark-btn {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+  
+  .company-logo-container {
+    border: 1px solid rgba(0,0,0,.05);
+  }
+</style>

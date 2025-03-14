@@ -1,0 +1,286 @@
+/* custom.css - Add to your static files */
+
+/* Global Styles */
+body {
+    background-color: #f8f9fa;
+    color: #495057;
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+  
+  /* Card Styles */
+  .card {
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-body {
+    padding: 0;
+  }
+  
+  /* Job Listing Styles */
+  .job-title {
+    font-weight: 600;
+    color: #212529;
+    transition: color 0.2s ease;
+  }
+  
+  .job-title:hover {
+    color: #28a745;
+  }
+  
+  .company-logo-container {
+    background-color: #ffffff;
+    border-radius: 50%;
+    padding: 12px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .job-meta {
+    margin-bottom: 12px;
+    color: #6c757d;
+    font-size: 0.9rem;
+  }
+  
+  .job-meta i {
+    margin-right: 6px;
+  }
+  
+  .job-description {
+    font-size: 0.92rem;
+    color: #6c757d;
+    line-height: 1.5;
+  }
+  
+  .job-tags .badge {
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 0.8rem;
+    background-color: #f1f3f5;
+    color: #495057;
+    padding: 6px 12px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+  }
+  
+  /* Button Styles */
+  .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    padding: 8px 24px;
+  }
+  
+  .btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .bookmark-btn {
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6c757d;
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    transition: all 0.2s ease;
+  }
+  
+  .bookmark-btn:hover {
+    background-color: #f8f9fa;
+    color: #28a745;
+  }
+  
+  /* Filter Sidebar Styles */
+  .filter-sidebar .card {
+    border: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .filter-sidebar h3 {
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin-bottom: 24px;
+  }
+  
+  .filter-sidebar .form-control {
+    border-radius: 6px;
+    padding: 10px 12px;
+    border: 1px solid #dee2e6;
+  }
+  
+  .filter-sidebar .form-control:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+  }
+  
+  /* Pagination Styles */
+  .pagination {
+    margin-top: 30px;
+  }
+  
+  .pagination .page-link {
+    border: none;
+    color: #495057;
+    margin: 0 5px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .pagination .page-item.active .page-link {
+    background-color: #28a745;
+    color: #ffffff;
+  }
+  
+  .pagination .page-link:hover {
+    background-color: #e9ecef;
+    color: #212529;
+  }
+  
+  /* Additional Elements */
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: #212529;
+  }
+  
+  .bg-light {
+    background-color: #f8f9fa !important;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .company-logo-container {
+      width: 80px;
+      height: 80px;
+    }
+    
+    .job-title {
+      font-size: 1.25rem;
+    }
+    
+    .btn-success {
+      padding: 6px 18px;
+      font-size: 0.9rem;
+    }
+  }
+  
+  /* Add these styles to your custom.css file */
+
+/* Job Detail Page Specific Styles */
+.job-description {
+    line-height: 1.8;
+    color: #495057;
+  }
+  
+  .job-description p {
+    margin-bottom: 1rem;
+  }
+  
+  #apply-section {
+    scroll-margin-top: 20px;
+  }
+  
+  .company-logo-container {
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  
+  .card-header {
+    border-bottom: none;
+  }
+  
+  .fw-medium {
+    font-weight: 500;
+  }
+  
+  /* Form styling */
+  .form-control:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+  }
+  
+  .form-control {
+    padding: 0.75rem 1rem;
+  }
+  
+  .input-group-text {
+    border: none;
+  }
+  
+  textarea.form-control {
+    min-height: 120px;
+  }
+  
+  /* Social sharing buttons */
+  .btn-outline-primary:hover, 
+  .btn-outline-danger:hover,
+  .btn-outline-info:hover,
+  .btn-outline-secondary:hover,
+  .btn-outline-success:hover {
+    transform: translateY(-3px);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 992px) {
+    .company-logo-container {
+      width: 80px;
+      height: 80px;
+    }
+  }
+  
+  /* Breadcrumb styling */
+  .breadcrumb {
+    margin-bottom: 1rem;
+  }
+  
+  .breadcrumb-item a {
+    color: #28a745;
+    text-decoration: none;
+  }
+  
+  .breadcrumb-item a:hover {
+    text-decoration: underline;
+  }
+  
+  .breadcrumb-item.active {
+    color: #495057;
+  }
+  
+  /* Card transitions */
+  .card {
+    transition: all 0.3s ease;
+  }
+  
+  /* Apply button animation */
+  .btn-success {
+    transition: all 0.3s ease;
+  }
+  
+  .btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
