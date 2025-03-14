@@ -1,225 +1,218 @@
 {% load static %}
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js" lang="zxx">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>Job Board</title>
-    <link rel="logo" href="img/favicon.png">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+    <link rel="logo" href="img/favicon.png" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <!-- <link rel="manifest" href="site.webmanifest"> -->
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png" />
     <!-- Place favicon.ico in the root directory -->
-    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
-    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
-    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css" />
     <!-- CSS here -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
-    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
-    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
-    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
-    <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
-    <link rel="stylesheet" href="{% static 'css/gijgo.css' %}">
-    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/slicknav.css' %}">
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/gijgo.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/slicknav.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
 
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
-</head>
+  </head>
 
-<body>
-    <!--[if lte IE 9]>
+  <body>
+    <!-- [if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-        <![endif]-->
+        <![endif] -->
 
     <!-- header-start -->
     <header>
-        <div class="header-area ">
-            <div id="sticky-header" class="main-header-area">
-                <div class="container-fluid ">
-                    <div class="header_bottom_border">
-                        <div class="row text-center align-center">
-                            <div class="col-xl-1  col-lg-4" style="background-color: rgb(41, 115, 238); width: 500px;"> 
-                                <div class="main-menu  d-none d-lg-block">
-                                    <nav>
-                                        <ul id="navigation" >
-                                            <li><a href="/"><i class="fa-solid fa-house" style="font-size: 15px; color: #A3E635">Home</i></a></li>                                                                                          
-    <li><a href="{% url 'blogs:blog_list' %}"><i class="fa-solid fa-address-card" style="font-size: 15px;  color: #A3E635">  Blog</i></a></li>                                             
-<li><a href="{% url 'jobs:job_list' %}"><i class="fa-solid fa-magnifying-glass" style="font-size: 15px; color: #A3E635"> Browse Job</i></a></li>                                                                                          
-<li><a href="{% url 'contact:contact_sendmsg' %}"><i class="fa-solid fa-user" style="font-size: 15px; color: #A3E635;">Contact</i></a></li>
-
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-7"> 
-                                <div class="col-xl-3 col-lg-2">
-                                    <div class="logo">
-                                        <a href="#">
-                                            <img src="{% static "img/logo.png" %}" alt="" >
-                                            
-                                        </a>
-                                    </div> 
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-3 d-none d-lg-block">
-                                <div class="Appointment">
-                                    {% if request.user.is_authenticated %}
-                                        <div class="phone_num d-none d-xl-block">
-                                            <a href="{% url 'accounts:logout' %}" class="btn btn-white">Log Out</a>
-
-                                        </div>
-
-                                        <div class="phone_num d-none d-xl-block">
-                                            <a href="{% url 'accounts:profile'%}">My Profile</a>
-                                        </div>
-
-                                    {% else %}
-                                        <div class="phone_num d-none d-xl-block">
-                                        <a href="{% url 'accounts:register'%}">Register Now</a>
-                                        </div>
-                                        <div class="phone_num d-none d-xl-block">
-                                            <a href="{% url 'login'%}">Log in</a>
-                                        </div>
-                                
-                                    {% endif %}
-                                    
-                                    <div class="d-none d-lg-block">
-                                        <a class="boxed-btn3" href="{% url 'jobs:add_job'%}">Post a Job</a>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="mobile_menu d-block d-lg-none"></div>
-                            </div>
-                        </div>
+      <div class="header-area", style="background-color: #001D38;">
+        <div id="sticky-header" class="main-header-area">
+          <div class="container-fluid">
+            <div class="header_bottom_border">
+              <div class="row text-center align-center">
+                {% comment %} <div class="col-xl-1 col-lg-4" style="background-color: rgb(41, 115, 238); width: 500px;">
+                  <div class="main-menu d-none d-lg-block">
+                    <nav>
+                      <ul id="navigation">
+                        <li>
+                          <a href="/"><i class="fa-solid fa-house" style="font-size: 15px; color: #A3E635">Home</i></a>
+                        </li>
+                        <li>
+                          <a href="{% url 'blogs:blog_list' %}"><i class="fa-solid fa-address-card" style="font-size: 15px;  color: #A3E635">Blog</i></a>
+                        </li>
+                        <li>
+                          <a href="{% url 'jobs:job_list' %}"><i class="fa-solid fa-magnifying-glass" style="font-size: 15px; color: #A3E635">Browse Job</i></a>
+                        </li>
+                        <li>
+                          <a href="{% url 'contact:contact_sendmsg' %}"><i class="fa-solid fa-user" style="font-size: 15px; color: #A3E635;">Contact</i></a>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                </div> {% endcomment %}
+                <div class="col-xl-6 col-lg-7">
+                  <div class="col-xl-3 col-lg-2">
+                    <div class="logo">
+                      <a href="#"><img src="{% static 'img/logo.png' %}" alt="" /></a>
                     </div>
-
+                  </div>
                 </div>
+                <div class="col-xl-3 col-lg-3 d-none d-lg-block">
+                  <div class="Appointment">
+                    {% if request.user.is_authenticated %}
+                      <div class="phone_num d-none d-xl-block">
+                        <a href="{% url 'accounts:logout' %}" class="btn btn-white">Log Out</a>
+                      </div>
+
+                      <div class="phone_num d-none d-xl-block">
+                        <a href="{% url 'accounts:profile' %}">My Profile</a>
+                      </div>
+                    {% else %}
+                      <div class="phone_num d-none d-xl-block">
+                        <a href="{% url 'accounts:register' %}">Register Now</a>
+                      </div>
+                      <div class="phone_num d-none d-xl-block">
+                        <a href="{% url 'login' %}">Log in</a>
+                      </div>
+                    {% endif %}
+
+                    <div class="d-none d-lg-block">
+                      <a class="boxed-btn3" href="{% url 'jobs:add_job' %}">Post a Job</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="mobile_menu d-block d-lg-none"></div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </header>
     <!-- header-end -->
 
     {% block body %}
 
-
-
-    {% endblock body %}
-
-    
+    {% endblock %}
 
     <!-- footer start -->
     <footer class="footer">
-        <div class="footer_top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-3 col-md-6 col-lg-3">
-                        <div class="footer_widget wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
-                            <div class="footer_logo">
-                                <a href="#">
-                                    <img src="img/logo.png" alt="">
-                                </a>
-                            </div>
-                            <p>
-                                finloan@support.com <br>
-                                +10 873 672 6782 <br>
-                                600/D, Green road, NewYork
-                            </p>
-                            <div class="socail_links">
-                                <ul>
-                                    <li>
-                                        <a href="#">
-                                            <i class="ti-facebook"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-google-plus"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-twitter"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-instagram"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-md-6 col-lg-2">
-                        <div class="footer_widget wow fadeInUp" data-wow-duration="1.1s" data-wow-delay=".4s">
-                            <h3 class="footer_title">
-                                Company
-                            </h3>
-                            <ul>
-                                <li><a href="#">About </a></li>
-                                <li><a href="#"> Pricing</a></li>
-                                <li><a href="#">Carrier Tips</a></li>
-                                <li><a href="#">FAQ</a></li>
-                            </ul>
-
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6 col-lg-3">
-                        <div class="footer_widget wow fadeInUp" data-wow-duration="1.2s" data-wow-delay=".5s">
-                            <h3 class="footer_title">
-                                Category
-                            </h3>
-                            <ul>
-                                <li><a href="#">Design & Art</a></li>
-                                <li><a href="#">Engineering</a></li>
-                                <li><a href="#">Sales & Marketing</a></li>
-                                <li><a href="#">Finance</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-md-6 col-lg-4">
-                        <div class="footer_widget wow fadeInUp" data-wow-duration="1.3s" data-wow-delay=".6s">
-                            <h3 class="footer_title">
-                                Subscribe
-                            </h3>
-                            <form action="#" class="newsletter_form">
-                                <input type="text" placeholder="Enter your mail">
-                                <button type="submit">Subscribe</button>
-                            </form>
-                            <p class="newsletter_text">Esteem spirit temper too say adieus who direct esteem esteems
-                                luckily.</p>
-                        </div>
-                    </div>
+      <div class="footer_top">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-3 col-md-6 col-lg-3">
+              <div class="footer_widget wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
+                <div class="footer_logo">
+                  <a href="#"><img src="img/logo.png" alt="" /></a>
                 </div>
-            </div>
-        </div>
-        <div class="copy-right_text wow fadeInUp" data-wow-duration="1.4s" data-wow-delay=".3s">
-            <div class="container">
-                <div class="footer_border"></div>
-                <div class="row">
-                    <div class="col-xl-12">
-                        <p class="copy_right text-center">
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        </p>
-                    </div>
+                <p>
+                  finloan@support.com <br />
+                  +10 873 672 6782 <br />
+                  600/D, Green road, NewYork
+                </p>
+                <div class="socail_links">
+                  <ul>
+                    <li>
+                      <a href="#"><i class="ti-facebook"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fa fa-google-plus"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fa fa-instagram"></i></a>
+                    </li>
+                  </ul>
                 </div>
+              </div>
             </div>
+            <div class="col-xl-2 col-md-6 col-lg-2">
+              <div class="footer_widget wow fadeInUp" data-wow-duration="1.1s" data-wow-delay=".4s">
+                <h3 class="footer_title">Company</h3>
+                <ul>
+                  <li>
+                    <a href="#">About</a>
+                  </li>
+                  <li>
+                    <a href="#">Pricing</a>
+                  </li>
+                  <li>
+                    <a href="#">Carrier Tips</a>
+                  </li>
+                  <li>
+                    <a href="#">FAQ</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6 col-lg-3">
+              <div class="footer_widget wow fadeInUp" data-wow-duration="1.2s" data-wow-delay=".5s">
+                <h3 class="footer_title">Category</h3>
+                <ul>
+                  <li>
+                    <a href="#">Design & Art</a>
+                  </li>
+                  <li>
+                    <a href="#">Engineering</a>
+                  </li>
+                  <li>
+                    <a href="#">Sales & Marketing</a>
+                  </li>
+                  <li>
+                    <a href="#">Finance</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-xl-4 col-md-6 col-lg-4">
+              <div class="footer_widget wow fadeInUp" data-wow-duration="1.3s" data-wow-delay=".6s">
+                <h3 class="footer_title">Subscribe</h3>
+                <form action="#" class="newsletter_form">
+                  <input type="text" placeholder="Enter your mail" />
+                  <button type="submit">Subscribe</button>
+                </form>
+                <p class="newsletter_text">Esteem spirit temper too say adieus who direct esteem esteems luckily.</p>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+      <div class="copy-right_text wow fadeInUp" data-wow-duration="1.4s" data-wow-delay=".3s">
+        <div class="container">
+          <div class="footer_border"></div>
+          <div class="row">
+            <div class="col-xl-12">
+              <p class="copy_right text-center">
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                Copyright &copy;<script>
+                                  document.write(new Date().getFullYear())
+                                </script>All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </footer>
-    <!--/ footer end  -->
+    <!-- / footer end -->
 
     <!-- link that opens popup -->
     <!-- JS here -->
@@ -243,9 +236,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <!-- <script src="js/gijgo.min.js"></script> -->
     <script src="{% static 'js/range.js' %}"></script>
 
-
-
-    <!--contact js-->
+    <!-- contact js -->
     <script src="{% static 'js/contact.js' %}"></script>
     <script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
     <script src="{% static 'js/jquery.form.js' %}"></script>
@@ -253,25 +244,21 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="{% static 'js/mail-script.js' %}"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-
     <script src="{% static 'js/main.js' %}"></script>
 
-
-	<script>
-        $( function() {
-            $( "#slider-range" ).slider({
-                range: true,
-                min: 0,
-                max: 24600,
-                values: [ 750, 24600 ],
-                slide: function( event, ui ) {
-                    $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] +"/ Year" );
-                }
-            });
-            $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-                " - $" + $( "#slider-range" ).slider( "values", 1 ) + "/ Year");
-        } );
-        </script>
-</body>
-
+    <script>
+      $(function () {
+        $('#slider-range').slider({
+          range: true,
+          min: 0,
+          max: 24600,
+          values: [750, 24600],
+          slide: function (event, ui) {
+            $('#amount').val('$' + ui.values[0] + ' - $' + ui.values[1] + '/ Year')
+          }
+        })
+        $('#amount').val('$' + $('#slider-range').slider('values', 0) + ' - $' + $('#slider-range').slider('values', 1) + '/ Year')
+      })
+    </script>
+  </body>
 </html>
