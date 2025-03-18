@@ -6321,14 +6321,14 @@ h6 {
 
 /* line 529, ../../Arafath/CL/December/235. Job board/HTML/scss/_blog.scss */
 .blog_details {
-  padding: 30px 0 20px 10px;
+  padding: 10px 0 10px 10px;
   box-shadow: 0px 10px 20px 0px rgba(221, 221, 221, 0.3);
 }
 
 @media (min-width: 768px) {
   /* line 529, ../../Arafath/CL/December/235. Job board/HTML/scss/_blog.scss */
   .blog_details {
-    padding: 60px 30px 35px 35px;
+    padding: 10px 0 10px 10px;
   }
 }
 

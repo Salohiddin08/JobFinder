@@ -10,13 +10,9 @@ body {
   /* Card Styles */
   .card {
     border-radius: 8px;
+    border: none;
     overflow: hidden;
     transition: all 0.3s ease;
-  }
-  
-  .card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   }
   
   .card-body {
@@ -38,7 +34,6 @@ body {
     background-color: #ffffff;
     border-radius: 50%;
     padding: 12px;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
     width: 100px;
     height: 100px;
     display: flex;
@@ -86,8 +81,6 @@ body {
   .btn-success:hover {
     background-color: #218838;
     border-color: #1e7e34;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
   .bookmark-btn {
@@ -112,7 +105,6 @@ body {
   /* Filter Sidebar Styles */
   .filter-sidebar .card {
     border: none;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   }
   
   .filter-sidebar h3 {
@@ -129,7 +121,6 @@ body {
   
   .filter-sidebar .form-control:focus {
     border-color: #28a745;
-    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
   }
   
   /* Pagination Styles */
@@ -220,7 +211,6 @@ body {
   /* Form styling */
   .form-control:focus {
     border-color: #28a745;
-    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
   }
   
   .form-control {
@@ -282,5 +272,4 @@ body {
   
   .btn-success:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }

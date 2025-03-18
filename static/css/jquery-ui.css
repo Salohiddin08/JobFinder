@@ -1309,3 +1309,7 @@ a.ui-button:active,
 	-webkit-box-shadow: 0px 0px 5px #666666;
 	box-shadow: 0px 0px 5px #666666;
 }
+
+.shadow {
+	box-shadow: 10px 10px 10px rgba(0,0,0,.45)!important;
+}
