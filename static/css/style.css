@@ -440,6 +440,7 @@ h3 {
   color: #fff;
   display: inline-block;
   padding: 13px 29px 13px 29px;
+  margin-top: 4px;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   font-weight: 500;
@@ -894,6 +895,8 @@ h3 {
   top: 0;
   z-index: 9;
   position: absolute;
+  background-color: #001D38;
+  opacity: 0.8;
 }
 
 @media (max-width: 767px) {
@@ -1394,7 +1397,8 @@ h3 {
 
 /* line 1, ../../Arafath/CL/December/235. Job board/HTML/scss/_slider.scss */
 .slider_bg_1 {
-  background-image: url(../img/banner/banner.png);
+  /* background-image: url(../img/banner/banner.png); */
+  background-color: #009DFF;
 }
 
 /* line 4, ../../Arafath/CL/December/235. Job board/HTML/scss/_slider.scss */
@@ -6317,14 +6321,14 @@ h6 {
 
 /* line 529, ../../Arafath/CL/December/235. Job board/HTML/scss/_blog.scss */
 .blog_details {
-  padding: 30px 0 20px 10px;
+  padding: 10px 0 10px 10px;
   box-shadow: 0px 10px 20px 0px rgba(221, 221, 221, 0.3);
 }
 
 @media (min-width: 768px) {
   /* line 529, ../../Arafath/CL/December/235. Job board/HTML/scss/_blog.scss */
   .blog_details {
-    padding: 60px 30px 35px 35px;
+    padding: 10px 0 10px 10px;
   }
 }
 

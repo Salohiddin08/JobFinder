@@ -1,167 +1,198 @@
- {% extends 'base.html' %}
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/custom.css' %}">
+{% endblock %}
 
 {% block body %}
-    <!-- bradcam_area  -->
-    <div class="bradcam_area bradcam_bg_1">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="bradcam_text">
-                        <h3>{{job.title}}</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- Job Detail Header -->
+<div class="container py-4">
+  <div class="row">
+    <div class="col-12">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent p-0">
+          <li class="breadcrumb-item"><a href="{% url 'jobs:job_list' %}">Jobs</a></li>
+          <li class="breadcrumb-item active" aria-current="page">{{job.title}}</li>
+        </ol>
+      </nav>
     </div>
-    <!--/ bradcam_area  -->
+  </div>
+</div>
 
-    <div class="job_details_area">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="job_details_header">
-                        <div class="single_jobs white-bg d-flex justify-content-between">
-                            <div class="jobs_left d-flex align-items-center">
-                                <div class="thumb">
-                                    <img id='imgsz'src="{{job.image.url}}" alt="">
-                                </div>
-                                <div class="jobs_conetent">
-                                    <a href="#"><h4>{{job.title}}</h4></a>
-                                    <div class="links_locat d-flex align-items-center">
-                                        <div class="location">
-                                            <p> <i class="fa fa-map-marker"></i> California, USA</p>
-                                        </div>
-                                        <div class="location">
-                                            <p> <i class="fa fa-clock-o"></i> {{job.job_type}}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="jobs_right">
-                                <div class="apply_now">
-                                    <a class="heart_mark" href="#"> <i class="ti-heart"></i> </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="descript_wrap white-bg">
-                        <div class="single_wrap">
-                            <h4>Job description</h4>
-                            <p>{{job.description}}</p>
-                        </div>
-
-                    
-                
-                    </div>
-                        
-                    
-                    <div class="apply_job_form white-bg">
-                        <h4>Apply for the job</h4>
-                        <form method='POST' enctype="multipart/form-data">
-                            {% csrf_token %}
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="input_field">
-                                        <!--<input type="text" placeholder="Your name"> -->
-                                        {{jobform.name}}
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="input_field">
-                                       <!-- <input type="text" placeholder="Email">-->
-                                       {{jobform.email}}
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="input_field">
-                                        <!--<input type="text" placeholder="Website/Portfolio link">-->
-                                        {{jobform.website}}
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                          <button type="button"  id="inputGroupFileAddon03" ><i class="fa fa-cloud-upload" aria-hidden="true" ></i>
-                                          <i>Upload CV</i>
-                                          </button>
-                                        </div>
-                                        <div class="custom-file">
-                                          <!--<input type="file" class="custom-file-input" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03">-->
-                                          {{jobform.cv}}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="input_field">
-                                        <!--<textarea name="#" id="" cols="30" rows="10" placeholder="Coverletter"></textarea>-->
-                                        {{jobform.cover_letter}}
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="submit_btn">
-                                        <button class="boxed-btn3 w-100" type="submit">Apply Now</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="job_sumary">
-                        <div class="summery_header">
-                            <h3>Job Summery</h3>
-                        </div>
-                        <div class="job_content">
-                            <ul>
-                                <li>Published on: <span>{{job.published_at|date:'d M o'}}</span></li>
-                                <li>Vacancy: <span>{{job.vacancy}} Position</span></li>
-                                <li>Salary: <span>{{job.salary}}k/y</span></li>
-                                <li>Location: <span>California, USA</span></li>
-                                <li>Job Nature: <span> {{job.job_type}}</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="share_wrap d-flex">
-                        <span>Share at:</span>
-                        <ul>
-                            <li><a href="#"> <i class="fa fa-facebook"></i></a> </li>
-                            <li><a href="#"> <i class="fa fa-google-plus"></i></a> </li>
-                            <li><a href="#"> <i class="fa fa-twitter"></i></a> </li>
-                            <li><a href="#"> <i class="fa fa-envelope"></i></a> </li>
-                        </ul>
-                    </div>
-                    <div class="job_location_wrap">
-                        <div class="job_lok_inner">
-                            <div id="map" style="height: 200px;"></div>
-                            <script>
-                              function initMap() {
-                                var uluru = {lat: -25.363, lng: 131.044};
-                                var grayStyles = [
-                                  {
-                                    featureType: "all",
-                                    stylers: [
-                                      { saturation: -90 },
-                                      { lightness: 50 }
-                                    ]
-                                  },
-                                  {elementType: 'labels.text.fill', stylers: [{color: '#ccdee9'}]}
-                                ];
-                                var map = new google.maps.Map(document.getElementById('map'), {
-                                  center: {lat: -31.197, lng: 150.744},
-                                  zoom: 9,
-                                  styles: grayStyles,
-                                  scrollwheel:  false
-                                });
-                              }
-                              
-                            </script>
-                            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpfS1oRGreGSBU5HHjMmQ3o5NLw7VdJ6I&callback=initMap"></script>
-                            
-                          </div>
-                    </div>
-                </div>
+<!-- Job Detail Content -->
+<div class="container pb-5">
+  <div class="row">
+    <!-- Main Content Area -->
+    <div class="col-lg-8">
+      <!-- Job Header Card -->
+      <div class="card border-0 shadow-sm mb-4">
+        <div class="card-body p-4">
+          <div class="d-flex">
+            <div class="company-logo-container bg-light rounded d-flex align-items-center justify-content-center me-4" style="width: 100px; height: 100px;">
+              <img src="{{job.image.url}}" class="img-fluid p-2" alt="{{job.title}}" style="max-width: 80px; max-height: 80px;">
             </div>
+            <div>
+              <h1 class="h2 mb-2">{{job.title}}</h1>
+              <div class="d-flex flex-wrap gap-3 mb-3">
+                <div class="d-flex align-items-center text-muted">
+                  <i class="bi bi-geo-alt me-2"></i>
+                  <span>California, USA</span>
+                </div>
+                <div class="d-flex align-items-center text-muted">
+                  <i class="bi bi-clock me-2"></i>
+                  <span>{{job.job_type}}</span>
+                </div>
+                <div class="d-flex align-items-center text-muted">
+                  <i class="bi bi-currency-dollar me-2"></i>
+                  <span>{{job.salary}}k/year</span>
+                </div>
+              </div>
+              <a href="#apply-section" class="btn btn-success px-4">
+                <i class="bi bi-send me-2"></i>Apply Now
+              </a>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <!-- Job Description -->
+      <div class="card border-0 shadow-sm mb-4">
+        <div class="card-body p-4">
+          <h4 class="card-title mb-4">Job Description</h4>
+          <div class="job-description">
+            <p>{{job.description}}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Application Form -->
+      <div class="card border-0 shadow-sm" id="apply-section">
+        <div class="card-body p-4">
+          <h4 class="card-title mb-4">Apply for this Job</h4>
+          
+          <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="id_name" class="form-label">Full Name</label>
+                <div class="form-group">
+                  {% bootstrap_field jobform.name show_label=False placeholder="Enter your full name" %}
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label for="id_email" class="form-label">Email Address</label>
+                <div class="form-group">
+                  {% bootstrap_field jobform.email show_label=False placeholder="Enter your email" %}
+                </div>
+              </div>
+              <div class="col-md-12">
+                <label for="id_website" class="form-label">Website/Portfolio (Optional)</label>
+                <div class="form-group">
+                  {% bootstrap_field jobform.website show_label=False placeholder="https://your-portfolio.com" %}
+                </div>
+              </div>
+              <div class="col-md-12">
+                <label for="id_cv" class="form-label">Resume/CV</label>
+                <div class="input-group">
+                  <span class="input-group-text bg-light">
+                    <i class="bi bi-file-earmark-pdf"></i>
+                  </span>
+                  <div class="form-control-file">
+                    {% bootstrap_field jobform.cv show_label=False %}
+                  </div>
+                </div>
+                <div class="form-text text-muted">Upload your CV (PDF, DOC, DOCX)</div>
+              </div>
+              <div class="col-md-12">
+                <label for="id_cover_letter" class="form-label">Cover Letter</label>
+                <div class="form-group">
+                  {% bootstrap_field jobform.cover_letter show_label=False %}
+                </div>
+                <div class="form-text text-muted">Explain why you're a good fit for this position</div>
+              </div>
+              <div class="col-md-12 mt-4">
+                <button type="submit" class="btn btn-success btn-lg w-100">
+                  <i class="bi bi-check2-circle me-2"></i>Submit Application
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
 
-    {% endblock body %}
+    <!-- Sidebar -->
+    <div class="col-lg-4 mt-4 mt-lg-0">
+      <!-- Job Summary Card -->
+      <div class="card border-0 shadow-sm mb-4">
+        <div class="card-header bg-light py-3">
+          <h5 class="mb-0">Job Summary</h5>
+        </div>
+        <div class="card-body p-4">
+          <ul class="list-unstyled mb-0">
+            <li class="d-flex justify-content-between py-2 border-bottom">
+              <span class="text-muted">Published on:</span>
+              <span class="fw-medium">{{job.published_at|date:'d M o'}}</span>
+            </li>
+            <li class="d-flex justify-content-between py-2 border-bottom">
+              <span class="text-muted">Vacancy:</span>
+              <span class="fw-medium">{{job.vacancy}} Position</span>
+            </li>
+            <li class="d-flex justify-content-between py-2 border-bottom">
+              <span class="text-muted">Salary:</span>
+              <span class="fw-medium">{{job.salary}}k/year</span>
+            </li>
+            <li class="d-flex justify-content-between py-2 border-bottom">
+              <span class="text-muted">Location:</span>
+              <span class="fw-medium">California, USA</span>
+            </li>
+            <li class="d-flex justify-content-between py-2">
+              <span class="text-muted">Job Type:</span>
+              <span class="fw-medium">{{job.job_type}}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Share Card -->
+      <div class="card border-0 shadow-sm mb-4">
+        <div class="card-body p-4">
+          <h5 class="card-title mb-3">Share This Job</h5>
+          <div class="d-flex gap-2">
+            <a href="#" class="btn btn-outline-primary">
+              <i class="bi bi-facebook"></i>
+            </a>
+            <a href="#" class="btn btn-outline-danger">
+              <i class="bi bi-google"></i>
+            </a>
+            <a href="#" class="btn btn-outline-info">
+              <i class="bi bi-twitter"></i>
+            </a>
+            <a href="#" class="btn btn-outline-secondary">
+              <i class="bi bi-linkedin"></i>
+            </a>
+            <a href="#" class="btn btn-outline-success">
+              <i class="bi bi-envelope"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Location Card -->
+      <div class="card border-0 shadow-sm">
+        <div class="card-header bg-light py-3">
+          <h5 class="mb-0">Job Location</h5>
+        </div>
+        <div class="card-body p-0">
+          <div class="ratio ratio-16x9">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26430.393553120906!2d-118.43209796322542!3d34.08346349319247!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2bc35fbd217ef%3A0xcf1ef9352700d95c!2sBeverly%20Hills%2C%20CA%2090210!5e0!3m2!1sen!2sus!4v1647624992276!5m2!1sen!2sus" 
+                  style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock body %}

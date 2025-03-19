@@ -1,0 +1,43 @@
+{% comment %}
+  components/pagination.html - Reusable pagination component
+  
+  Parameters:
+  - page_obj: The paginator page object
+{% endcomment %}
+{% load bootstrap4 %}
+
+{% if page_obj.has_other_pages %}
+<nav aria-label="Page navigation" class="mt-4">
+    <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{page_obj.previous_page_number}}{% if request.GET.sort %}&sort={{request.GET.sort}}{% endif %}" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <span class="page-link">&laquo;</span>
+        </li>
+        {% endif %}
+        
+        {% for i in page_obj.paginator.page_range %}
+        <li class="page-item {% if page_obj.number == i %}active{% endif %}">
+            <a class="page-link" href="?page={{i}}{% if request.GET.sort %}&sort={{request.GET.sort}}{% endif %}">{{i}}</a>
+        </li>
+        {% endfor %}
+        
+        {% if page_obj.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{page_obj.next_page_number}}{% if request.GET.sort %}&sort={{request.GET.sort}}{% endif %}" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <span class="page-link">&raquo;</span>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
