@@ -2,29 +2,61 @@
 {% load bootstrap4 %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/custom.css' %}">
-<link rel="stylesheet" href="{% static 'css/base.css' %}">
+  <link rel="stylesheet" href="{% static 'css/custom.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/base.css' %}" />
 {% endblock %}
 
-<article class="blog_item mb-5">
+{% comment %} local css area {% endcomment %}
+{% block local_css %}
+  <style>
+    .blog_item_img {
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+    
+    .blog_item_img img {
+      transition: transform 0.3s ease;
+    }
+    .blog_item_img:hover img {
+      transform: scale(1.05);
+    }
+
+    .img {
+        max-width: 100%;
+        height: auto;
+        clip-path: inset(0 0 0 0 round 12px);
+    }
+
+    .img_div { 
+        clip-path: inset(0 0 0 0 round 12px);
+    }
+  </style>
+{% endblock %}
+
+{% comment %} blog list item {% endcomment %}
+
+<article class="blog_item mb-5 blog_item_img">
+  <a class="d-inline-block" href="{% url 'blogs:blog_detail' blog.slug %}">
     <div class="row">
-        <div class="col-md-3 mb-3 mb-md-0">
-            <div class="blog_item_img">
-                <img class="rounded shadow img-fluid" src="{{ blog.image.url }}" alt="{{ blog.title }}" style="border-radius: 12px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-            </div>
+      <div class="col-md-3 mb-3 mb-md-0">
+        <div class=".img_div">
+            <img class="rounded img" src="{{ blog.image.url }}" alt="{{ blog.title }}" />
         </div>
-        <div class="col-md-9">
-            <div class="blog_details">
-                <a class="d-inline-block" href="{% url 'blogs:blog_detail' blog.slug %}">
-                    <h2>{{ blog.title }}</h2>
-                </a>
-                <p>{{ blog.content|slice:":200" }}{% if blog.content|length > 200 %}...{% endif %}</p>
-                <ul class="blog-info-link list-unstyled">
-                    <li>
-                        <i class="fa fa-user"></i> Posted By: {{ blog.author }} At: {{ blog.created_on|date:'d M Y' }}
-                    </li>
-                </ul>
-            </div>
+      </div>
+      <div class="col-md-9">
+        <div class="blog_details">
+          <h2>{{ blog.title }}</h2>
+          <p>
+            {{ blog.content|slice:':200' }}{% if blog.content|length > 200 %}...{% endif %}
+          </p>
+          <ul class="blog-info-link list-unstyled">
+            <li>
+              <i class="fa fa-user"></i> Posted By: {{ blog.author }} At: {{ blog.created_on|date:'d M Y' }}
+            </li>
+          </ul>
         </div>
+      </div>
     </div>
+  </a>
 </article>
